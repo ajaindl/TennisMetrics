@@ -14,7 +14,7 @@ using TennisMetrics.Droid.Models;
 
 namespace TennisMetrics.Droid.Activities
 {
-    [Activity(Label = "SettingsActivity")]
+    [Activity(Label = "Settings")]
     public class SettingsActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

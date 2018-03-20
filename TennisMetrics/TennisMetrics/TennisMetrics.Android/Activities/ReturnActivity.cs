@@ -15,7 +15,7 @@ using TennisMetrics.Droid.Activities.Helpers;
 
 namespace TennisMetrics.Droid.Activities
 {
-    [Activity(Label = "ReturnActivity")]
+    [Activity(Label = "Return")]
     public class ReturnActivity : Activity
     {
         private Match match;

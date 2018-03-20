@@ -7,7 +7,7 @@ using TennisMetrics.Droid.Activities;
 
 namespace TennisMetrics.Droid
 {
-    [Activity(Label = "TennisMetrics", MainLauncher = true, Icon = "@mipmap/icon")]
+    [Activity(Label = "Tennis Metrics", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

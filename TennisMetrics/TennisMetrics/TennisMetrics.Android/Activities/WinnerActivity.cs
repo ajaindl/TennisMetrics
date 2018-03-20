@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 
 namespace TennisMetrics.Droid.Activities
 {
-    [Activity(Label = "WinnerActivity")]
+    [Activity(Label = "Winner Type")]
     public class WinnerActivity : Activity
     {
         private Button fhgs;

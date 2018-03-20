@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 
 namespace TennisMetrics.Droid.Activities
 {
-    [Activity(Label = "ErrorActivity")]
+    [Activity(Label = "Error Type")]
     public class ErrorActivity : Activity
     {
         private Button fhuf;

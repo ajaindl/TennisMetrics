@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 
 namespace TennisMetrics.Droid.Activities
 {
-    [Activity(Label = "PointActivity")]
+    [Activity(Label = "Point Outcome")]
     public class PointActivity : Activity
     {
         private string w = "Winner";
