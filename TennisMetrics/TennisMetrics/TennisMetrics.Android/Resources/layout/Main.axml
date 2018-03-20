@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <TextView
+        android:text="Welcome to Tennis Metrics!"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/Title" />
+    <Button
+        android:id= "@+id/startMatch"
+        android:layout_width="match_parent"
+        android:layout_height="68.0dp"
+        android:layout_marginTop="100dp"
+        android:text="Start Match" />
+    <Button
+        android:text="Previous Matches"
+        android:layout_width="match_parent"
+        android:layout_height="68.0dp"
+        android:id="@+id/prevMatch" />
+</LinearLayout>

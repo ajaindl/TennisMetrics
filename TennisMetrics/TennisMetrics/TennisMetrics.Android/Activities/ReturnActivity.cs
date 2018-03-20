@@ -1,0 +1,107 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Newtonsoft.Json;
+using TennisMetrics.Droid.Models;
+using TennisMetrics.Droid.Activities.Helpers;
+
+namespace TennisMetrics.Droid.Activities
+{
+    [Activity(Label = "ReturnActivity")]
+    public class ReturnActivity : Activity
+    {
+        private Match match;
+        private ScoreHelper sh;
+        private Button r;
+        private Button ur;
+        private ReturnHelper rh;
+        private TextView serverScore;
+        private TextView returnerScore;
+        private TextView playerScore;
+        private TextView oppScore;
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            SetContentView(Resource.Layout.Returned);
+
+            var vh = new ViewHelper();
+            sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
+            match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
+            rh = new ReturnHelper();
+
+            r = FindViewById<Button>(Resource.Id.returned);
+            ur = FindViewById<Button>(Resource.Id.unreturned);
+            var playerName = FindViewById<TextView>(Resource.Id.playerRName);
+            var oppName = FindViewById<TextView>(Resource.Id.oppRName);
+            var playerRow = FindViewById<TableRow>(Resource.Id.playerRRow);
+            var oppRow = FindViewById<TableRow>(Resource.Id.oppRRow);
+            playerScore = FindViewById<TextView>(Resource.Id.playerRScore);
+            oppScore = FindViewById<TextView>(Resource.Id.oppRScore);
+
+
+
+            if (sh.IsServing)
+            {
+                var intent = rh.ReturnToBase(sh, match, this);
+                StartActivity(intent);
+            }
+            playerName.Text = match.Player.Name;
+            oppName.Text = "Opponent";
+            foreach (var game in sh.GameFramesPlayer)
+            {
+                playerRow.AddView(vh.GetGameScoreView(this, game));
+            }
+            foreach (var game in sh.GameFramesOpp)
+            {
+                oppRow.AddView(vh.GetGameScoreView(this, game));
+            }
+            playerRow.AddView(vh.GetGameScoreView(this, sh.PlayerGames));
+            oppRow.AddView(vh.GetGameScoreView(this, sh.OppGames));
+            playerScore.Text = sh.GetScore(sh.PlayerPoints);
+            oppScore.Text = sh.GetScore(sh.OppPoints);
+
+            if (sh.InTiebreak)
+            {
+                    playerScore.Text = sh.PlayerTbPoints.ToString();
+                    oppScore.Text = sh.OppTbPoints.ToString();
+        
+            }
+
+            if (sh.Finished)
+            {
+                var intent = new Intent(this, typeof(MainActivity));
+                StartActivity(intent);
+            }
+
+
+
+            r.Click += (object sender, EventArgs args) =>
+            {
+                match.Player.Stats.SReturned += 1;
+                var intent = new Intent(this, typeof(PointActivity));
+                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
+                intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
+                StartActivity(intent);
+            };
+
+            ur.Click += (object sender, EventArgs args) =>
+            {
+                match.Player.Stats.SUnreturned += 1;
+                sh.PlayerAction(sh, false);
+                var intent = rh.ReturnToBase(sh, match, this);
+                StartActivity(intent);
+            };
+
+
+        }
+    }
+}

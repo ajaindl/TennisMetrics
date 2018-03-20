@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.TennisMetrics">
+  <!--suppress UsesMinSdkAttributes-->
+  <uses-sdk android:minSdkVersion="15" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <application android:label="TennisMetrics" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
+    <activity android:icon="@mipmap/icon" android:label="TennisMetrics" android:name="md56173dd478dca7b471fe347b72d208d6b.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:label="ErrorActivity" android:name="md506224105d567dcb9a617c1871988b083.ErrorActivity" />
+    <activity android:label="ForcedErrorActivity" android:name="md506224105d567dcb9a617c1871988b083.ForcedErrorActivity" />
+    <activity android:label="PointActivity" android:name="md506224105d567dcb9a617c1871988b083.PointActivity" />
+    <activity android:label="ReturnActivity" android:name="md506224105d567dcb9a617c1871988b083.ReturnActivity" />
+    <activity android:label="Serve" android:name="md506224105d567dcb9a617c1871988b083.ServeActivity" />
+    <activity android:label="SettingsActivity" android:name="md506224105d567dcb9a617c1871988b083.SettingsActivity" />
+    <activity android:label="WinnerActivity" android:name="md506224105d567dcb9a617c1871988b083.WinnerActivity" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.companyname.TennisMetrics.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.com.companyname.TennisMetrics" />
+      </intent-filter>
+    </receiver>
+  </application>
+</manifest>

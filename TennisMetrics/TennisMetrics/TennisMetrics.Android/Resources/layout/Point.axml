@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <Button
+        android:id="@+id/ace"
+        android:layout_width="match_parent"
+        android:layout_height="68.0dp"
+        android:layout_marginTop="200dp"
+        android:text="Ace" />
+    <Button
+        android:text="Winner"
+        android:layout_width="match_parent"
+        android:layout_height="68.0dp"
+        android:id="@+id/winner" />
+    <Button
+        android:text="Opponent Error"
+        android:layout_width="match_parent"
+        android:layout_height="68.0dp"
+        android:id="@+id/forcedOppError" />
+    <Button
+        android:text="Error"
+        android:layout_width="match_parent"
+        android:layout_height="68.0dp"
+        android:id="@+id/error" />
+</LinearLayout>

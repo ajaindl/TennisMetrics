@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <Button
+        android:id="@+id/fhwf"
+        android:layout_width="match_parent"
+        android:layout_height="68.0dp"
+        android:layout_marginTop="200dp"
+        android:text="Forehand" />
+    <Button
+        android:text="Backhand"
+        android:layout_width="match_parent"
+        android:layout_height="68.0dp"
+        android:id="@+id/bhwf" />
+    <Button
+        android:id="@+id/fhvwf"
+        android:layout_width="match_parent"
+        android:layout_height="68.0dp"
+        android:text="Forehand Volley" />
+    <Button
+        android:text="Backhand Volley"
+        android:layout_width="match_parent"
+        android:layout_height="68.0dp"
+        android:id="@+id/bhvwf" />
+</LinearLayout>
