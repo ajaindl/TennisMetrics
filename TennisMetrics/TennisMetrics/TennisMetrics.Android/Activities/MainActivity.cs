@@ -1,5 +1,4 @@
 ﻿using System;
-using TennisMetrics.Droid.Models;
 using Android.App;
 using Android.Widget;
 using Android.OS;
