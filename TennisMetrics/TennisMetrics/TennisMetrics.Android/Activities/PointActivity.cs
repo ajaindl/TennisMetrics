@@ -13,15 +13,6 @@ namespace TennisMetrics.Droid.Activities
     [Activity(Label = "Point Outcome")]
     public class PointActivity : Activity
     {
-        private string w = "Winner";
-        private string err = "Error";
-        private Button ace;
-        private Button winner;
-        private Button error;
-        private Button unreturned;
-        public ScoreHelper sh;
-        private Match match;
-        private ReturnHelper rh;
         
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,14 +20,14 @@ namespace TennisMetrics.Droid.Activities
 
             SetContentView(Resource.Layout.Point);
 
-            sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
-            match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
-            rh = new ReturnHelper();
+            var sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
+            var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
+            var rh = new ReturnHelper();
 
-            ace = FindViewById<Button>(Resource.Id.ace);
-            winner = FindViewById<Button>(Resource.Id.winner);
-            error = FindViewById<Button>(Resource.Id.error);
-            unreturned = FindViewById<Button>(Resource.Id.forcedOppError);
+            var ace = FindViewById<Button>(Resource.Id.ace);
+            var winner = FindViewById<Button>(Resource.Id.winner);
+            var error = FindViewById<Button>(Resource.Id.error);
+            var unreturned = FindViewById<Button>(Resource.Id.forcedOppError);
 
 
 

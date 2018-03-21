@@ -15,14 +15,7 @@ namespace TennisMetrics.Droid.Activities
     {
         private Settings settings;
         private Match match;
-        private ToggleButton toggle;
         private ScoreHelper sh;
-        private ReturnHelper rh;
-        private TextView serverScore;
-        private TextView returnerScore;
-        private TextView playerScore;
-        private TextView oppScore;
-        private TableLayout serveTable;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -53,7 +46,7 @@ namespace TennisMetrics.Droid.Activities
                 intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
                 StartActivity(intent);
             }
-            rh = new ReturnHelper();
+            var rh = new ReturnHelper();
  
             var fServeButton = FindViewById<Button>(Resource.Id.fserve);
             var sServeButton = FindViewById<Button>(Resource.Id.sserve);
@@ -62,9 +55,8 @@ namespace TennisMetrics.Droid.Activities
             var oppName = FindViewById<TextView>(Resource.Id.oppName);
             var playerRow = FindViewById<TableRow>(Resource.Id.playerSRow);
             var oppRow = FindViewById<TableRow>(Resource.Id.oppSRow);
-            toggle = FindViewById<ToggleButton>(Resource.Id.toggleServe);
-            playerScore = FindViewById<TextView>(Resource.Id.playerSScore);
-            oppScore = FindViewById<TextView>(Resource.Id.oppSScore);
+            var playerScore = FindViewById<TextView>(Resource.Id.playerSScore);
+            var oppScore = FindViewById<TextView>(Resource.Id.oppSScore);
 
             playerName.Text = match.Player.Name ;
             oppName.Text = "Opponent";
@@ -94,16 +86,6 @@ namespace TennisMetrics.Droid.Activities
                 StartActivity(intent);
             }
 
-            toggle.Click += (object sender, EventArgs args) =>
-             {
-                 if (!toggle.Checked)
-                 {
-                     var intent = new Intent(this, typeof(ReturnActivity));
-                     intent.PutExtra("Match", JsonConvert.SerializeObject(match));
-                     intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
-                     StartActivity(intent);
-                 }
-             };
 
             fServeButton.Click += (object sender, EventArgs args) =>
             {

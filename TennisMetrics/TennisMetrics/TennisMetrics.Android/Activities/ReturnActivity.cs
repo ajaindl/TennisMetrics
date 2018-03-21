@@ -13,15 +13,7 @@ namespace TennisMetrics.Droid.Activities
     [Activity(Label = "Return")]
     public class ReturnActivity : Activity
     {
-        private Match match;
-        private ScoreHelper sh;
-        private Button r;
-        private Button ur;
-        private ReturnHelper rh;
-        private TextView serverScore;
-        private TextView returnerScore;
-        private TextView playerScore;
-        private TextView oppScore;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,18 +21,18 @@ namespace TennisMetrics.Droid.Activities
             SetContentView(Resource.Layout.Returned);
 
             var vh = new ViewHelper();
-            sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
-            match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
-            rh = new ReturnHelper();
+            var sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
+            var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
+            var rh = new ReturnHelper();
 
-            r = FindViewById<Button>(Resource.Id.returned);
-            ur = FindViewById<Button>(Resource.Id.unreturned);
+            var r = FindViewById<Button>(Resource.Id.returned);
+            var ur = FindViewById<Button>(Resource.Id.unreturned);
             var playerName = FindViewById<TextView>(Resource.Id.playerRName);
             var oppName = FindViewById<TextView>(Resource.Id.oppRName);
             var playerRow = FindViewById<TableRow>(Resource.Id.playerRRow);
             var oppRow = FindViewById<TableRow>(Resource.Id.oppRRow);
-            playerScore = FindViewById<TextView>(Resource.Id.playerRScore);
-            oppScore = FindViewById<TextView>(Resource.Id.oppRScore);
+            var playerScore = FindViewById<TextView>(Resource.Id.playerRScore);
+            var oppScore = FindViewById<TextView>(Resource.Id.oppRScore);
 
 
 

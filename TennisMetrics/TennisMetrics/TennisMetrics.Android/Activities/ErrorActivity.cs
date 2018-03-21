@@ -13,27 +13,21 @@ namespace TennisMetrics.Droid.Activities
     [Activity(Label = "Error Type")]
     public class ErrorActivity : Activity
     {
-        private Button fhuf;
-        private Button bhuf;
-        private Button fhf;
-        private Button bhf;
-        public ScoreHelper sh;
-        private Match match;
-        private ReturnHelper rh;
+  
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Error);
 
-            sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
-            match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
-            rh = new ReturnHelper();
+            var sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
+            var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
+            var rh = new ReturnHelper();
 
-            fhuf = FindViewById<Button>(Resource.Id.fhuf);
-            bhuf = FindViewById<Button>(Resource.Id.bhuf);
-            fhf = FindViewById<Button>(Resource.Id.fhfe);
-            bhf = FindViewById<Button>(Resource.Id.bhfe);
+            var fhuf = FindViewById<Button>(Resource.Id.fhuf);
+            var bhuf = FindViewById<Button>(Resource.Id.bhuf);
+            var fhf = FindViewById<Button>(Resource.Id.fhfe);
+            var bhf = FindViewById<Button>(Resource.Id.bhfe);
 
             fhuf.Click += (object sender, EventArgs args) =>
             {

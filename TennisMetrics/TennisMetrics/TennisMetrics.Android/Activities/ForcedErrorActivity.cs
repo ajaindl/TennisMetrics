@@ -13,27 +13,21 @@ namespace TennisMetrics.Droid.Activities
     [Activity(Label = "Forced Error Type")]
     public class ForcedErrorActivity : Activity
     {
-        private Button fhwf;
-        private Button bhwf;
-        private Button fhvwf;
-        private Button bhvwf;
-        public ScoreHelper sh;
-        private Match match;
-        private ReturnHelper rh;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.ForcedError);
 
-            sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
-            match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
-            rh = new ReturnHelper();
+            var sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
+            var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
+            var rh = new ReturnHelper();
 
-            fhwf = FindViewById<Button>(Resource.Id.fhwf);
-            bhwf = FindViewById<Button>(Resource.Id.bhwf);
-            fhvwf = FindViewById<Button>(Resource.Id.fhvwf);
-            bhvwf = FindViewById<Button>(Resource.Id.bhvwf);
+            var fhwf = FindViewById<Button>(Resource.Id.fhwf);
+            var bhwf = FindViewById<Button>(Resource.Id.bhwf);
+            var fhvwf = FindViewById<Button>(Resource.Id.fhvwf);
+            var bhvwf = FindViewById<Button>(Resource.Id.bhvwf);
 
             fhwf.Click += (object sender, EventArgs args) =>
             {
@@ -63,7 +57,7 @@ namespace TennisMetrics.Droid.Activities
                 var intent = rh.ReturnToBase(sh, match, this);
                 StartActivity(intent);
             };
-            // Create your application here
+
         }
     }
 }

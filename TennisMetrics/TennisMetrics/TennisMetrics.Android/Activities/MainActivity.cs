@@ -18,7 +18,7 @@ namespace TennisMetrics.Droid
 
             // Get our button from the layout resource,
             // and attach an event to it
-            Button startMatchButton = FindViewById<Button>(Resource.Id.startMatch);
+            var startMatchButton = FindViewById<Button>(Resource.Id.startMatch);
 
             startMatchButton.Click += (object sender, EventArgs args) =>
             {
