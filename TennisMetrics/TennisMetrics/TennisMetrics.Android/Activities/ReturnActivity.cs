@@ -25,6 +25,7 @@ namespace TennisMetrics.Droid.Activities
             var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
             var rh = new ReturnHelper();
 
+            var mainMenuButton = FindViewById<Button>(Resource.Id.mainMenuR);
             var r = FindViewById<Button>(Resource.Id.returned);
             var ur = FindViewById<Button>(Resource.Id.unreturned);
             var playerName = FindViewById<TextView>(Resource.Id.playerRName);
@@ -65,7 +66,8 @@ namespace TennisMetrics.Droid.Activities
 
             if (sh.Finished)
             {
-                var intent = new Intent(this, typeof(MainActivity));
+                var intent = new Intent(this, typeof(StatsActivity));
+                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
                 StartActivity(intent);
             }
 
@@ -85,6 +87,11 @@ namespace TennisMetrics.Droid.Activities
                 match.Player.Stats.SUnreturned += 1;
                 sh.PlayerAction(sh, false);
                 var intent = rh.ReturnToBase(sh, match, this);
+                StartActivity(intent);
+            };
+            mainMenuButton.Click += (object sender, EventArgs args) =>
+            {
+                var intent = new Intent(this, typeof(MainActivity));
                 StartActivity(intent);
             };
 

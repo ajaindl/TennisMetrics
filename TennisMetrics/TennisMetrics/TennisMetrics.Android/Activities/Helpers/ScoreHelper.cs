@@ -352,17 +352,24 @@ namespace TennisMetrics.Droid.Activities.Helpers
             }
             else
             {
-                if (playerWon)
+                if (stats.MaxSets == 1)
                 {
-                    stats.PlayerSets += 1;
-                    stats.GameFramesPlayer.Add(stats.PlayerGames);
-                    stats.GameFramesOpp.Add(stats.OppGames);
+                    ConcludeMatch(stats, playerWon);
                 }
                 else
                 {
-                    stats.OppSets += 1;
-                    stats.GameFramesPlayer.Add(stats.PlayerGames);
-                    stats.GameFramesOpp.Add(stats.OppGames);
+                    if (playerWon)
+                    {
+                        stats.PlayerSets += 1;
+                        stats.GameFramesPlayer.Add(stats.PlayerGames);
+                        stats.GameFramesOpp.Add(stats.OppGames);
+                    }
+                    else
+                    {
+                        stats.OppSets += 1;
+                        stats.GameFramesPlayer.Add(stats.PlayerGames);
+                        stats.GameFramesOpp.Add(stats.OppGames);
+                    }
                 }
             }
         }
@@ -444,7 +451,7 @@ namespace TennisMetrics.Droid.Activities.Helpers
         }
         public static void ConcludeMatch(ScoreHelper stats, bool playerWon)
         {
-
+            stats.Finished = true;
 
         }
         public static void ResetPoints(ScoreHelper stats, bool playerWon)

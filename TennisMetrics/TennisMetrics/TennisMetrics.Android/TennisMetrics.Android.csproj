@@ -58,6 +58,7 @@
     <Compile Include="Activities\ServeActivity.cs" />
     <Compile Include="Activities\SettingsActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\StatsActivity.cs" />
     <Compile Include="Activities\WinnerActivity.cs" />
     <Compile Include="Fragments\ErrorTypeFragment.cs" />
     <Compile Include="Fragments\SideFragment.cs" />
@@ -90,6 +91,9 @@
     <AndroidResource Include="Resources\layout\Error.axml" />
     <AndroidResource Include="Resources\layout\Winner.axml" />
     <AndroidResource Include="Resources\layout\ForcedError.axml" />
+    <AndroidResource Include="Resources\layout\StatsDisplay.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />

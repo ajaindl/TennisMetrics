@@ -47,7 +47,9 @@ namespace TennisMetrics.Droid.Activities
                 StartActivity(intent);
             }
             var rh = new ReturnHelper();
- 
+
+            var mainMenuButton = FindViewById<Button>(Resource.Id.mainMenu);
+            var isReturnButton = FindViewById<Button>(Resource.Id.isReturn);
             var fServeButton = FindViewById<Button>(Resource.Id.fserve);
             var sServeButton = FindViewById<Button>(Resource.Id.sserve);
             var dfButton = FindViewById<Button>(Resource.Id.df);
@@ -82,7 +84,8 @@ namespace TennisMetrics.Droid.Activities
 
             if (sh.Finished)
             {
-                var intent = new Intent(this, typeof(MainActivity));
+                var intent = new Intent(this, typeof(StatsActivity));
+                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
                 StartActivity(intent);
             }
 
@@ -90,6 +93,7 @@ namespace TennisMetrics.Droid.Activities
             fServeButton.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.FSMade += 1;
+                match.Player.Stats.FSServed += 1;
                 var intent = new Intent(this, typeof(PointActivity));
                 intent.PutExtra("Match", JsonConvert.SerializeObject(match));
                 intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
@@ -100,6 +104,7 @@ namespace TennisMetrics.Droid.Activities
             sServeButton.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.SSMade += 1;
+                match.Player.Stats.FSServed += 1;
                 var intent = new Intent(this, typeof(PointActivity));
                 intent.PutExtra("Match", JsonConvert.SerializeObject(match));
                 intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
@@ -113,6 +118,18 @@ namespace TennisMetrics.Droid.Activities
                 var intent = rh.ReturnToBase(sh, match, this);
                 StartActivity(intent);   
 
+            };
+            isReturnButton.Click += (object sender, EventArgs args) =>
+            {
+                var intent = new Intent(this, typeof(ReturnActivity));
+                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
+                intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
+                StartActivity(intent);
+            };
+            mainMenuButton.Click += (object sender, EventArgs args) =>
+            {
+                var intent = new Intent(this, typeof(MainActivity));
+                StartActivity(intent);
             };
 
 

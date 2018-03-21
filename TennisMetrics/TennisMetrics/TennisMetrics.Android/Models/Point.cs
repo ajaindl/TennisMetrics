@@ -20,6 +20,7 @@
             BHFWinner = 0;
             FHVFWinner = 0;
             BHVFWinner = 0;
+            FSServed = 0;
         
 
         }
@@ -29,6 +30,7 @@
         public int DoubleFaults { get; set; }
         public int FSMade { get; set; }
         public int SSMade { get; set; }
+        public int FSServed { get; set; }
         public int FhVWinners { get; set; }
         public int BhVWinners { get; set; }
         public int FhUFErrors { get; set; }

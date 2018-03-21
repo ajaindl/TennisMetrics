@@ -26,7 +26,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:textSize="30dp" />
-          
         </TableRow>
         <TableRow
             android:id="@+id/oppSRow">
@@ -60,11 +59,21 @@
         android:layout_width="match_parent"
         android:layout_height="68.0dp"
         android:id="@+id/df" />
-    <ToggleButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Serving"
-        android:id="@+id/toggleServe"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp" />
+    <RelativeLayout
+        android:id="@+id/menuButtonLayoutS"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <Button
+            android:text="Returning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/isReturn"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:text="Main Menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainMenu"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 </LinearLayout>

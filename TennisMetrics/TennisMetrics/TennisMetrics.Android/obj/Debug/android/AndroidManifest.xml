@@ -5,19 +5,20 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <application android:label="TennisMetrics" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
-    <activity android:icon="@mipmap/icon" android:label="TennisMetrics" android:name="md56173dd478dca7b471fe347b72d208d6b.MainActivity">
+    <activity android:icon="@mipmap/icon" android:label="Tennis Metrics" android:name="md56173dd478dca7b471fe347b72d208d6b.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:label="ErrorActivity" android:name="md506224105d567dcb9a617c1871988b083.ErrorActivity" />
-    <activity android:label="ForcedErrorActivity" android:name="md506224105d567dcb9a617c1871988b083.ForcedErrorActivity" />
-    <activity android:label="PointActivity" android:name="md506224105d567dcb9a617c1871988b083.PointActivity" />
-    <activity android:label="ReturnActivity" android:name="md506224105d567dcb9a617c1871988b083.ReturnActivity" />
+    <activity android:label="Error Type" android:name="md506224105d567dcb9a617c1871988b083.ErrorActivity" />
+    <activity android:label="Forced Error Type" android:name="md506224105d567dcb9a617c1871988b083.ForcedErrorActivity" />
+    <activity android:label="Point Outcome" android:name="md506224105d567dcb9a617c1871988b083.PointActivity" />
+    <activity android:label="Return" android:name="md506224105d567dcb9a617c1871988b083.ReturnActivity" />
     <activity android:label="Serve" android:name="md506224105d567dcb9a617c1871988b083.ServeActivity" />
-    <activity android:label="SettingsActivity" android:name="md506224105d567dcb9a617c1871988b083.SettingsActivity" />
-    <activity android:label="WinnerActivity" android:name="md506224105d567dcb9a617c1871988b083.WinnerActivity" />
+    <activity android:label="Settings" android:name="md506224105d567dcb9a617c1871988b083.SettingsActivity" />
+    <activity android:label="StatsActivity" android:name="md506224105d567dcb9a617c1871988b083.StatsActivity" />
+    <activity android:label="Winner Type" android:name="md506224105d567dcb9a617c1871988b083.WinnerActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.companyname.TennisMetrics.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">

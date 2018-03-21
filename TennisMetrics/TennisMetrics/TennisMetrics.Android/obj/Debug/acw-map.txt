@@ -38,6 +38,10 @@ TennisMetrics.Droid.Activities.SettingsActivity, TennisMetrics.Android;md5062241
 TennisMetrics.Droid.Activities.SettingsActivity, TennisMetrics.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md506224105d567dcb9a617c1871988b083.SettingsActivity
 TennisMetrics.Droid.Activities.SettingsActivity;md506224105d567dcb9a617c1871988b083.SettingsActivity
 tennismetrics.droid.activities.SettingsActivity;md506224105d567dcb9a617c1871988b083.SettingsActivity
+TennisMetrics.Droid.Activities.StatsActivity, TennisMetrics.Android;md506224105d567dcb9a617c1871988b083.StatsActivity
+TennisMetrics.Droid.Activities.StatsActivity, TennisMetrics.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md506224105d567dcb9a617c1871988b083.StatsActivity
+TennisMetrics.Droid.Activities.StatsActivity;md506224105d567dcb9a617c1871988b083.StatsActivity
+tennismetrics.droid.activities.StatsActivity;md506224105d567dcb9a617c1871988b083.StatsActivity
 TennisMetrics.Droid.Activities.WinnerActivity, TennisMetrics.Android;md506224105d567dcb9a617c1871988b083.WinnerActivity
 TennisMetrics.Droid.Activities.WinnerActivity, TennisMetrics.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md506224105d567dcb9a617c1871988b083.WinnerActivity
 TennisMetrics.Droid.Activities.WinnerActivity;md506224105d567dcb9a617c1871988b083.WinnerActivity
