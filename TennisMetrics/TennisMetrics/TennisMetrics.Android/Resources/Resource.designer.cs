@@ -28,6 +28,25 @@ namespace TennisMetrics.Droid
 		{
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f050001
+			public const int games_array = 2131034113;
+			
+			// aapt resource value: 0x7f050000
+			public const int sets_array = 2131034112;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -44,254 +63,257 @@ namespace TennisMetrics.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f04000a
-			public const int Title = 2130968586;
+			// aapt resource value: 0x7f06000a
+			public const int Title = 2131099658;
 			
-			// aapt resource value: 0x7f04000e
-			public const int ace = 2130968590;
+			// aapt resource value: 0x7f06000e
+			public const int ace = 2131099662;
 			
-			// aapt resource value: 0x7f04004a
-			public const int aces = 2130968650;
+			// aapt resource value: 0x7f06004b
+			public const int aces = 2131099723;
 			
-			// aapt resource value: 0x7f04002c
-			public const int adCheck = 2130968620;
+			// aapt resource value: 0x7f06002c
+			public const int adCheck = 2131099692;
 			
-			// aapt resource value: 0x7f040030
-			public const int bh = 2130968624;
+			// aapt resource value: 0x7f060030
+			public const int bh = 2131099696;
 			
-			// aapt resource value: 0x7f04003c
-			public const int bhF = 2130968636;
+			// aapt resource value: 0x7f06003d
+			public const int bhF = 2131099709;
 			
-			// aapt resource value: 0x7f04003a
-			public const int bhFE = 2130968634;
+			// aapt resource value: 0x7f06003b
+			public const int bhFE = 2131099707;
 			
-			// aapt resource value: 0x7f040038
-			public const int bhStatsRow = 2130968632;
+			// aapt resource value: 0x7f060039
+			public const int bhStatsRow = 2131099705;
 			
-			// aapt resource value: 0x7f04003b
-			public const int bhUF = 2130968635;
+			// aapt resource value: 0x7f06003c
+			public const int bhUF = 2131099708;
 			
-			// aapt resource value: 0x7f040039
-			public const int bhW = 2130968633;
+			// aapt resource value: 0x7f06003a
+			public const int bhW = 2131099706;
 			
-			// aapt resource value: 0x7f040001
-			public const int bhfe = 2130968577;
+			// aapt resource value: 0x7f060001
+			public const int bhfe = 2131099649;
 			
-			// aapt resource value: 0x7f040003
-			public const int bhuf = 2130968579;
+			// aapt resource value: 0x7f060003
+			public const int bhuf = 2131099651;
 			
-			// aapt resource value: 0x7f040046
-			public const int bhvF = 2130968646;
+			// aapt resource value: 0x7f060047
+			public const int bhvF = 2131099719;
 			
-			// aapt resource value: 0x7f040044
-			public const int bhvFE = 2130968644;
+			// aapt resource value: 0x7f060045
+			public const int bhvFE = 2131099717;
 			
-			// aapt resource value: 0x7f040042
-			public const int bhvStatsRow = 2130968642;
+			// aapt resource value: 0x7f060043
+			public const int bhvStatsRow = 2131099715;
 			
-			// aapt resource value: 0x7f040045
-			public const int bhvUF = 2130968645;
+			// aapt resource value: 0x7f060046
+			public const int bhvUF = 2131099718;
 			
-			// aapt resource value: 0x7f040043
-			public const int bhvW = 2130968643;
+			// aapt resource value: 0x7f060044
+			public const int bhvW = 2131099716;
 			
-			// aapt resource value: 0x7f040052
-			public const int bhvw = 2130968658;
+			// aapt resource value: 0x7f060053
+			public const int bhvw = 2131099731;
 			
-			// aapt resource value: 0x7f040009
-			public const int bhvwf = 2130968585;
+			// aapt resource value: 0x7f060009
+			public const int bhvwf = 2131099657;
 			
-			// aapt resource value: 0x7f040050
-			public const int bhw = 2130968656;
+			// aapt resource value: 0x7f060051
+			public const int bhw = 2131099729;
 			
-			// aapt resource value: 0x7f040007
-			public const int bhwf = 2130968583;
+			// aapt resource value: 0x7f060007
+			public const int bhwf = 2131099655;
 			
-			// aapt resource value: 0x7f040027
-			public const int df = 2130968615;
+			// aapt resource value: 0x7f060027
+			public const int df = 2131099687;
 			
-			// aapt resource value: 0x7f04004b
-			public const int dfs = 2130968651;
+			// aapt resource value: 0x7f06004c
+			public const int dfs = 2131099724;
 			
-			// aapt resource value: 0x7f040011
-			public const int error = 2130968593;
+			// aapt resource value: 0x7f060011
+			public const int error = 2131099665;
 			
-			// aapt resource value: 0x7f040031
-			public const int fh = 2130968625;
+			// aapt resource value: 0x7f060031
+			public const int fh = 2131099697;
 			
-			// aapt resource value: 0x7f040037
-			public const int fhF = 2130968631;
+			// aapt resource value: 0x7f060038
+			public const int fhF = 2131099704;
 			
-			// aapt resource value: 0x7f040035
-			public const int fhFE = 2130968629;
+			// aapt resource value: 0x7f060036
+			public const int fhFE = 2131099702;
 			
-			// aapt resource value: 0x7f040032
-			public const int fhLabelRow = 2130968626;
+			// aapt resource value: 0x7f060033
+			public const int fhLabelRow = 2131099699;
 			
-			// aapt resource value: 0x7f040033
-			public const int fhStatsRow = 2130968627;
+			// aapt resource value: 0x7f060034
+			public const int fhStatsRow = 2131099700;
 			
-			// aapt resource value: 0x7f040036
-			public const int fhUF = 2130968630;
+			// aapt resource value: 0x7f060037
+			public const int fhUF = 2131099703;
 			
-			// aapt resource value: 0x7f040034
-			public const int fhW = 2130968628;
+			// aapt resource value: 0x7f060035
+			public const int fhW = 2131099701;
 			
-			// aapt resource value: 0x7f040000
-			public const int fhfe = 2130968576;
+			// aapt resource value: 0x7f060000
+			public const int fhfe = 2131099648;
 			
-			// aapt resource value: 0x7f040002
-			public const int fhuf = 2130968578;
+			// aapt resource value: 0x7f060002
+			public const int fhuf = 2131099650;
 			
-			// aapt resource value: 0x7f040041
-			public const int fhvF = 2130968641;
+			// aapt resource value: 0x7f060042
+			public const int fhvF = 2131099714;
 			
-			// aapt resource value: 0x7f04003f
-			public const int fhvFE = 2130968639;
+			// aapt resource value: 0x7f060040
+			public const int fhvFE = 2131099712;
 			
-			// aapt resource value: 0x7f04003d
-			public const int fhvStatsRow = 2130968637;
+			// aapt resource value: 0x7f06003e
+			public const int fhvStatsRow = 2131099710;
 			
-			// aapt resource value: 0x7f040040
-			public const int fhvUF = 2130968640;
+			// aapt resource value: 0x7f060041
+			public const int fhvUF = 2131099713;
 			
-			// aapt resource value: 0x7f04003e
-			public const int fhvW = 2130968638;
+			// aapt resource value: 0x7f06003f
+			public const int fhvW = 2131099711;
 			
-			// aapt resource value: 0x7f040051
-			public const int fhvw = 2130968657;
+			// aapt resource value: 0x7f060052
+			public const int fhvw = 2131099730;
 			
-			// aapt resource value: 0x7f040008
-			public const int fhvwf = 2130968584;
+			// aapt resource value: 0x7f060008
+			public const int fhvwf = 2131099656;
 			
-			// aapt resource value: 0x7f04004f
-			public const int fhw = 2130968655;
+			// aapt resource value: 0x7f060050
+			public const int fhw = 2131099728;
 			
-			// aapt resource value: 0x7f040006
-			public const int fhwf = 2130968582;
+			// aapt resource value: 0x7f060006
+			public const int fhwf = 2131099654;
 			
-			// aapt resource value: 0x7f040004
-			public const int forced = 2130968580;
+			// aapt resource value: 0x7f060004
+			public const int forced = 2131099652;
 			
-			// aapt resource value: 0x7f040010
-			public const int forcedOppError = 2130968592;
+			// aapt resource value: 0x7f060010
+			public const int forcedOppError = 2131099664;
 			
-			// aapt resource value: 0x7f04000d
-			public const int fragment = 2130968589;
+			// aapt resource value: 0x7f06000d
+			public const int fragment = 2131099661;
 			
-			// aapt resource value: 0x7f040048
-			public const int fsP = 2130968648;
+			// aapt resource value: 0x7f060049
+			public const int fsP = 2131099721;
 			
-			// aapt resource value: 0x7f040025
-			public const int fserve = 2130968613;
+			// aapt resource value: 0x7f060025
+			public const int fserve = 2131099685;
 			
-			// aapt resource value: 0x7f04004e
-			public const int groundstroke = 2130968654;
+			// aapt resource value: 0x7f06002e
+			public const int gamesSpinner = 2131099694;
 			
-			// aapt resource value: 0x7f040029
-			public const int isReturn = 2130968617;
+			// aapt resource value: 0x7f06004f
+			public const int groundstroke = 2131099727;
 			
-			// aapt resource value: 0x7f04001d
-			public const int linearLayout1 = 2130968605;
+			// aapt resource value: 0x7f060029
+			public const int isReturn = 2131099689;
 			
-			// aapt resource value: 0x7f04002a
-			public const int mainMenu = 2130968618;
+			// aapt resource value: 0x7f06001d
+			public const int linearLayout1 = 2131099677;
 			
-			// aapt resource value: 0x7f04001c
-			public const int mainMenuR = 2130968604;
+			// aapt resource value: 0x7f06002a
+			public const int mainMenu = 2131099690;
 			
-			// aapt resource value: 0x7f04004c
-			public const int mainMenuStats = 2130968652;
+			// aapt resource value: 0x7f06001c
+			public const int mainMenuR = 2131099676;
 			
-			// aapt resource value: 0x7f04001b
-			public const int menuButtonLayoutR = 2130968603;
+			// aapt resource value: 0x7f06004d
+			public const int mainMenuStats = 2131099725;
 			
-			// aapt resource value: 0x7f040028
-			public const int menuButtonLayoutS = 2130968616;
+			// aapt resource value: 0x7f060032
+			public const int matchScore = 2131099698;
 			
-			// aapt resource value: 0x7f04002d
-			public const int numGames = 2130968621;
+			// aapt resource value: 0x7f06001b
+			public const int menuButtonLayoutR = 2131099675;
 			
-			// aapt resource value: 0x7f04002e
-			public const int numSets = 2130968622;
+			// aapt resource value: 0x7f060028
+			public const int menuButtonLayoutS = 2131099688;
 			
-			// aapt resource value: 0x7f040023
-			public const int oppName = 2130968611;
+			// aapt resource value: 0x7f060023
+			public const int oppName = 2131099683;
 			
-			// aapt resource value: 0x7f040017
-			public const int oppRName = 2130968599;
+			// aapt resource value: 0x7f060017
+			public const int oppRName = 2131099671;
 			
-			// aapt resource value: 0x7f040016
-			public const int oppRRow = 2130968598;
+			// aapt resource value: 0x7f060016
+			public const int oppRRow = 2131099670;
 			
-			// aapt resource value: 0x7f040018
-			public const int oppRScore = 2130968600;
+			// aapt resource value: 0x7f060018
+			public const int oppRScore = 2131099672;
 			
-			// aapt resource value: 0x7f040022
-			public const int oppSRow = 2130968610;
+			// aapt resource value: 0x7f060022
+			public const int oppSRow = 2131099682;
 			
-			// aapt resource value: 0x7f040024
-			public const int oppSScore = 2130968612;
+			// aapt resource value: 0x7f060024
+			public const int oppSScore = 2131099684;
 			
-			// aapt resource value: 0x7f040020
-			public const int playerName = 2130968608;
+			// aapt resource value: 0x7f060020
+			public const int playerName = 2131099680;
 			
-			// aapt resource value: 0x7f040014
-			public const int playerRName = 2130968596;
+			// aapt resource value: 0x7f060014
+			public const int playerRName = 2131099668;
 			
-			// aapt resource value: 0x7f040013
-			public const int playerRRow = 2130968595;
+			// aapt resource value: 0x7f060013
+			public const int playerRRow = 2131099667;
 			
-			// aapt resource value: 0x7f040015
-			public const int playerRScore = 2130968597;
+			// aapt resource value: 0x7f060015
+			public const int playerRScore = 2131099669;
 			
-			// aapt resource value: 0x7f04001f
-			public const int playerSRow = 2130968607;
+			// aapt resource value: 0x7f06001f
+			public const int playerSRow = 2131099679;
 			
-			// aapt resource value: 0x7f040021
-			public const int playerSScore = 2130968609;
+			// aapt resource value: 0x7f060021
+			public const int playerSScore = 2131099681;
 			
-			// aapt resource value: 0x7f04000c
-			public const int prevMatch = 2130968588;
+			// aapt resource value: 0x7f06000c
+			public const int prevMatch = 2131099660;
 			
-			// aapt resource value: 0x7f040012
-			public const int returnTable = 2130968594;
+			// aapt resource value: 0x7f060012
+			public const int returnTable = 2131099666;
 			
-			// aapt resource value: 0x7f040019
-			public const int returned = 2130968601;
+			// aapt resource value: 0x7f060019
+			public const int returned = 2131099673;
 			
-			// aapt resource value: 0x7f040047
-			public const int serveRow = 2130968647;
+			// aapt resource value: 0x7f060048
+			public const int serveRow = 2131099720;
 			
-			// aapt resource value: 0x7f04001e
-			public const int serveTable = 2130968606;
+			// aapt resource value: 0x7f06001e
+			public const int serveTable = 2131099678;
 			
-			// aapt resource value: 0x7f04002f
-			public const int settingsNext = 2130968623;
+			// aapt resource value: 0x7f06002d
+			public const int setsSpinner = 2131099693;
 			
-			// aapt resource value: 0x7f040049
-			public const int ssP = 2130968649;
+			// aapt resource value: 0x7f06002f
+			public const int settingsNext = 2131099695;
 			
-			// aapt resource value: 0x7f040026
-			public const int sserve = 2130968614;
+			// aapt resource value: 0x7f06004a
+			public const int ssP = 2131099722;
 			
-			// aapt resource value: 0x7f04000b
-			public const int startMatch = 2130968587;
+			// aapt resource value: 0x7f060026
+			public const int sserve = 2131099686;
 			
-			// aapt resource value: 0x7f04002b
-			public const int tbCheck = 2130968619;
+			// aapt resource value: 0x7f06000b
+			public const int startMatch = 2131099659;
 			
-			// aapt resource value: 0x7f040005
-			public const int unforced = 2130968581;
+			// aapt resource value: 0x7f06002b
+			public const int tbCheck = 2131099691;
 			
-			// aapt resource value: 0x7f04001a
-			public const int unreturned = 2130968602;
+			// aapt resource value: 0x7f060005
+			public const int unforced = 2131099653;
 			
-			// aapt resource value: 0x7f04004d
-			public const int volley = 2130968653;
+			// aapt resource value: 0x7f06001a
+			public const int unreturned = 2131099674;
 			
-			// aapt resource value: 0x7f04000f
-			public const int winner = 2130968591;
+			// aapt resource value: 0x7f06004e
+			public const int volley = 2131099726;
+			
+			// aapt resource value: 0x7f06000f
+			public const int winner = 2131099663;
 			
 			static Id()
 			{
@@ -364,6 +386,25 @@ namespace TennisMetrics.Droid
 			}
 			
 			private Mipmap()
+			{
+			}
+		}
+		
+		public partial class String
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int game_prompt = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int set_prompt = 2130968577;
+			
+			static String()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private String()
 			{
 			}
 		}

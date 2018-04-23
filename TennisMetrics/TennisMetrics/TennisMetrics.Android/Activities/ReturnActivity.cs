@@ -25,6 +25,7 @@ namespace TennisMetrics.Droid.Activities
             var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
             var rh = new ReturnHelper();
 
+
             var mainMenuButton = FindViewById<Button>(Resource.Id.mainMenuR);
             var r = FindViewById<Button>(Resource.Id.returned);
             var ur = FindViewById<Button>(Resource.Id.unreturned);
@@ -91,9 +92,24 @@ namespace TennisMetrics.Droid.Activities
             };
             mainMenuButton.Click += (object sender, EventArgs args) =>
             {
-                var intent = new Intent(this, typeof(MainActivity));
-                StartActivity(intent);
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+                alertBuilder.SetTitle("Exit");
+                alertBuilder.SetMessage("Are you sure you want to exit the match?");
+                alertBuilder.SetPositiveButton("Yes", (senderAlert, argsAlert) =>
+                {
+                    var intent = new Intent(this, typeof(StatsActivity));
+                    intent.PutExtra("Match", JsonConvert.SerializeObject(match));
+                    StartActivity(intent);
+                });
+                alertBuilder.SetNegativeButton("No", (senderAlert, argsAlert) =>
+                {
+                    alertBuilder.Dispose();
+                });
+
+                Dialog dialog = alertBuilder.Create();
+                dialog.Show();
             };
+
 
 
         }

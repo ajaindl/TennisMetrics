@@ -121,6 +121,7 @@ namespace TennisMetrics.Droid.Activities
             };
             isReturnButton.Click += (object sender, EventArgs args) =>
             {
+                sh.IsServing = false;
                 var intent = new Intent(this, typeof(ReturnActivity));
                 intent.PutExtra("Match", JsonConvert.SerializeObject(match));
                 intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
@@ -128,8 +129,24 @@ namespace TennisMetrics.Droid.Activities
             };
             mainMenuButton.Click += (object sender, EventArgs args) =>
             {
-                var intent = new Intent(this, typeof(MainActivity));
-                StartActivity(intent);
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+                alertBuilder.SetTitle("Exit");
+                alertBuilder.SetMessage("Are you sure you want to exit the match?");
+                alertBuilder.SetPositiveButton("Yes", (senderAlert, argsAlert) =>
+                {
+                    var intent = new Intent(this, typeof(StatsActivity));
+                    intent.PutExtra("Match", JsonConvert.SerializeObject(match));
+                    StartActivity(intent);
+                });
+                alertBuilder.SetNegativeButton("No", (senderAlert, argsAlert) =>
+                {
+                    alertBuilder.Dispose();
+                });
+
+
+                Dialog dialog = alertBuilder.Create();
+                dialog.Show();
+
             };
 
 

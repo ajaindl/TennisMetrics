@@ -28,6 +28,7 @@ namespace TennisMetrics.Droid.Activities
             var stats = match.Player.Stats;
 
             var mainMenuButton = FindViewById<Button>(Resource.Id.mainMenuStats);
+            var score = FindViewById<TextView>(Resource.Id.matchScore);
             var fhW = FindViewById<TextView>(Resource.Id.fhW);
             var fhFE = FindViewById<TextView>(Resource.Id.fhFE);
             var fhUF = FindViewById<TextView>(Resource.Id.fhUF);
@@ -49,6 +50,7 @@ namespace TennisMetrics.Droid.Activities
             var aces = FindViewById<TextView>(Resource.Id.aces);
             var df = FindViewById<TextView>(Resource.Id.dfs);
 
+            score.Text = 
             fhW.Text = stats.FhWinners.ToString();
             fhFE.Text = stats.FHFWinner.ToString();
             fhUF.Text = stats.FhUFErrors.ToString();

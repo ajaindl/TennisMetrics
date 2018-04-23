@@ -15,23 +15,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/adCheck" />
-    <NumberPicker
+    <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/numGames" />
-    <NumberPicker
+        android:layout_height="60dp"
+        android:id="@+id/setsSpinner"
+        android:prompt="@string/set_prompt" />
+    <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/numSets" />
+        android:layout_height="60dp"
+        android:id="@+id/gamesSpinner"
+        android:textAlignment="center"
+        android:prompt="@string/game_prompt" />
     <EditText
         android:inputType="textPersonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:id="@+id/playerName"
-        android:layout_marginLeft="0.0dp" />
+        android:hint="Player Name"
+        android:layout_marginLeft="0.0dp"/>
     <Button
         android:text="Next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:id="@+id/settingsNext" />
 </LinearLayout>

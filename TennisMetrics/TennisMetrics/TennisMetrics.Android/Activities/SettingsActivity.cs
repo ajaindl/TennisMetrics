@@ -20,19 +20,19 @@ namespace TennisMetrics.Droid.Activities
             SetContentView(Resource.Layout.Settings);
             var settings = new Settings();
 
+            var gameSpinner = FindViewById<Spinner>(Resource.Id.gamesSpinner);
+            var setsSpinner = FindViewById<Spinner>(Resource.Id.setsSpinner);
             var thirdSetRadio = FindViewById<CheckBox>(Resource.Id.tbCheck);
             var adRadio = FindViewById<CheckBox>(Resource.Id.adCheck);
             var p1NameText = FindViewById<EditText>(Resource.Id.playerName);
-            var numSets = FindViewById<NumberPicker>(Resource.Id.numGames);
-            var numGames = FindViewById<NumberPicker>(Resource.Id.numSets);
             var nextBtn = FindViewById<Button>(Resource.Id.settingsNext);
 
-            numSets.MaxValue = 5;
-            numSets.MinValue = 1;
-            numGames.MaxValue = 10;
-            numGames.MinValue = 4;
-            numSets.Value = 3;
-            numGames.Value = 6;
+            var setSpinnerAdapater = ArrayAdapter.CreateFromResource(this, Resource.Array.sets_array, Android.Resource.Layout.SimpleSpinnerItem);
+            var gameSpinnerAdapater = ArrayAdapter.CreateFromResource(this, Resource.Array.games_array, Android.Resource.Layout.SimpleSpinnerItem);
+            setSpinnerAdapater.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            gameSpinnerAdapater.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            gameSpinner.Adapter = gameSpinnerAdapater;
+            setsSpinner.Adapter = setSpinnerAdapater;
 
 
             nextBtn.Click += (object sender, EventArgs args) =>
@@ -40,16 +40,18 @@ namespace TennisMetrics.Droid.Activities
 
                  var intent = new Intent(this, typeof(ServeActivity));
 
-                 settings.Games = numGames.Value;
-                 settings.Sets =numSets.Value;
+                 //settings.Games = numGames.Value;
+                 //settings.Sets =numSets.Value;
                  settings.TiebreakSet = !thirdSetRadio.Checked;
                  settings.NoAd = adRadio.Checked;
-
+                 settings.Sets = Convert.ToInt32(setsSpinner.SelectedItem.ToString());
+                 settings.Games = Convert.ToInt32(gameSpinner.SelectedItem.ToString());
                  intent.PutExtra("Settings", JsonConvert.SerializeObject(settings));
                  intent.PutExtra("P", p1NameText.Text);
                  intent.PutExtra("Activity", "Settings");
                  StartActivity(intent);
              };
+
 
         }
     }
