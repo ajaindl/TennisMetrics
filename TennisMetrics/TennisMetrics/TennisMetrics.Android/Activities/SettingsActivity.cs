@@ -49,6 +49,7 @@ namespace TennisMetrics.Droid.Activities
                  intent.PutExtra("Settings", JsonConvert.SerializeObject(settings));
                  intent.PutExtra("P", p1NameText.Text);
                  intent.PutExtra("Activity", "Settings");
+                 //Intent.PutExtra("idlist", Intent.GetStringExtra("idlist"));
                  StartActivity(intent);
              };
 

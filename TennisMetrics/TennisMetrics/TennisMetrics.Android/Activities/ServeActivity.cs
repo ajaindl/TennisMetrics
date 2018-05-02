@@ -7,6 +7,7 @@ using Android.Widget;
 using Newtonsoft.Json;
 using TennisMetrics.Droid.Models;
 using TennisMetrics.Droid.Activities.Helpers;
+using System.Collections.Generic;
 
 namespace TennisMetrics.Droid.Activities
 {
@@ -16,6 +17,7 @@ namespace TennisMetrics.Droid.Activities
         private Settings settings;
         private Match match;
         private ScoreHelper sh;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,6 +31,7 @@ namespace TennisMetrics.Droid.Activities
             {
                 sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
                 match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
+
             }
             else
             {
@@ -86,6 +89,25 @@ namespace TennisMetrics.Droid.Activities
             {
                 var intent = new Intent(this, typeof(StatsActivity));
                 intent.PutExtra("Match", JsonConvert.SerializeObject(match));
+                var localStore = Application.Context.GetSharedPreferences("Matches", FileCreationMode.Private);
+                var storeEditor = localStore.Edit();
+
+                if (localStore.GetString("idlist", null) == null)
+                {
+                    match.StorageId = match.IdList.Count;
+                    match.IdList.Add(match.StorageId);
+                    storeEditor.PutString("idlist", JsonConvert.SerializeObject(match.IdList));
+                }
+                else
+                {
+                    match.IdList = JsonConvert.DeserializeAnonymousType("idlist", match.IdList);
+                    match.StorageId = match.IdList.Count;
+                    match.IdList.Add(match.StorageId);
+                    storeEditor.PutString("idlist", JsonConvert.SerializeObject(match.IdList));
+                }
+       
+                storeEditor.PutString(match.StorageId.ToString(), JsonConvert.SerializeObject(match));
+                storeEditor.Commit();
                 StartActivity(intent);
             }
 

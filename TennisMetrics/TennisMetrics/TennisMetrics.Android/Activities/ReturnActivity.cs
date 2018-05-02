@@ -69,6 +69,25 @@ namespace TennisMetrics.Droid.Activities
             {
                 var intent = new Intent(this, typeof(StatsActivity));
                 intent.PutExtra("Match", JsonConvert.SerializeObject(match));
+                var localStore = Application.Context.GetSharedPreferences("Matches", FileCreationMode.Private);
+                var storeEditor = localStore.Edit();
+
+                if (localStore.GetString("idlist", null) == null)
+                {
+                    match.StorageId = match.IdList.Count;
+                    match.IdList.Add(match.StorageId);
+                    storeEditor.PutString("idlist", JsonConvert.SerializeObject(match.IdList));
+                }
+                else
+                {
+                    match.IdList = JsonConvert.DeserializeAnonymousType("idlist", match.IdList);
+                    match.StorageId = match.IdList.Count;
+                    match.IdList.Add(match.StorageId);
+                    storeEditor.PutString("idlist", JsonConvert.SerializeObject(match.IdList));
+                }
+
+                storeEditor.PutString(match.StorageId.ToString(), JsonConvert.SerializeObject(match));
+                storeEditor.Commit();
                 StartActivity(intent);
             }
 

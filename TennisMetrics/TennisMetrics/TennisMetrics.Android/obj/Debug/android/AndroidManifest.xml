@@ -14,6 +14,7 @@
     <activity android:label="Error Type" android:name="md506224105d567dcb9a617c1871988b083.ErrorActivity" />
     <activity android:label="Forced Error Type" android:name="md506224105d567dcb9a617c1871988b083.ForcedErrorActivity" />
     <activity android:label="Point Outcome" android:name="md506224105d567dcb9a617c1871988b083.PointActivity" />
+    <activity android:label="PreviousMatchActivity" android:name="md506224105d567dcb9a617c1871988b083.PreviousMatchActivity" />
     <activity android:label="Return" android:name="md506224105d567dcb9a617c1871988b083.ReturnActivity" />
     <activity android:label="Serve" android:name="md506224105d567dcb9a617c1871988b083.ServeActivity" />
     <activity android:label="Settings" android:name="md506224105d567dcb9a617c1871988b083.SettingsActivity" />

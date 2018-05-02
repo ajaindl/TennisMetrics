@@ -26,6 +26,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +57,7 @@
     <Compile Include="Activities\Helpers\TiebreakHelper.cs" />
     <Compile Include="Activities\Helpers\ViewHelper.cs" />
     <Compile Include="Activities\PointActivity.cs" />
+    <Compile Include="Activities\PreviousMatchActivity.cs" />
     <Compile Include="Activities\ReturnActivity.cs" />
     <Compile Include="Activities\ServeActivity.cs" />
     <Compile Include="Activities\SettingsActivity.cs" />
@@ -94,6 +98,9 @@
     <AndroidResource Include="Resources\layout\Winner.axml" />
     <AndroidResource Include="Resources\layout\ForcedError.axml" />
     <AndroidResource Include="Resources\layout\StatsDisplay.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PreviousMatches.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

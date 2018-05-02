@@ -1,4 +1,6 @@
-﻿namespace TennisMetrics.Droid.Models
+﻿using System.Collections.Generic;
+
+namespace TennisMetrics.Droid.Models
 {
     public class Match
     {
@@ -11,9 +13,12 @@
             CurrentGame = 0;
             OpponentsGamesWon = 0;
             OpponentsSetsWon = 0;
+            IdList = new List<int>();
        
 
         }
+        public int StorageId { get; set; }
+        public List<int> IdList { get; set; }
         public Player Player { get; set; }
         public Settings MySettings { get; set; }
         public int TotalGames { get; set; }

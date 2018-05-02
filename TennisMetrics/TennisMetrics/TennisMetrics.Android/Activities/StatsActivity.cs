@@ -76,6 +76,8 @@ namespace TennisMetrics.Droid.Activities
 
             string GetServePercentage(int made, int total)
             {
+                if (total == 0)
+                    return "0";
                 var serves = Convert.ToDouble(made);
 
                 var percentage = serves / total;
