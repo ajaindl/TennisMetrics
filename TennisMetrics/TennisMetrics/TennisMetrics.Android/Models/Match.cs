@@ -13,12 +13,12 @@ namespace TennisMetrics.Droid.Models
             CurrentGame = 0;
             OpponentsGamesWon = 0;
             OpponentsSetsWon = 0;
-            IdList = new List<int>();
+            IdList = new Dictionary<int, string>();
        
 
         }
         public int StorageId { get; set; }
-        public List<int> IdList { get; set; }
+        public Dictionary<int, string> IdList { get; set; }
         public Player Player { get; set; }
         public Settings MySettings { get; set; }
         public int TotalGames { get; set; }

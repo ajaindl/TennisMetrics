@@ -95,14 +95,14 @@ namespace TennisMetrics.Droid.Activities
                 if (localStore.GetString("idlist", null) == null)
                 {
                     match.StorageId = match.IdList.Count;
-                    match.IdList.Add(match.StorageId);
+                    match.IdList.Add(match.StorageId, DateTime.Now.ToString());
                     storeEditor.PutString("idlist", JsonConvert.SerializeObject(match.IdList));
                 }
                 else
                 {
                     match.IdList = JsonConvert.DeserializeAnonymousType("idlist", match.IdList);
                     match.StorageId = match.IdList.Count;
-                    match.IdList.Add(match.StorageId);
+                    match.IdList.Add(match.StorageId, DateTime.Now.ToString());
                     storeEditor.PutString("idlist", JsonConvert.SerializeObject(match.IdList));
                 }
        
