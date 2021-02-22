@@ -23,13 +23,13 @@ namespace TennisMetrics.Droid.Activities
             SetContentView(Resource.Layout.PreviousMatches);
 
             var matchList = new List<Match>();
-            var idList = new Dictionary<int, string>();
+            var idList = new List<string>();
             var idDisplayList = new List<string>();
             var matchListView = FindViewById<ListView>(Resource.Id.matchList);
             var sharedPref= Application.Context.GetSharedPreferences("Matches", FileCreationMode.Private);
             var idString = sharedPref.GetString("idlist", null);
-            if(idString!=null)
-                idList = JsonConvert.DeserializeAnonymousType<Dictionary<int, string>>(idString, idList);
+            if (!string.IsNullOrEmpty(idString))
+            idList = JsonConvert.DeserializeAnonymousType<List<string>>(idString, idList);
 
             if (idList.Count > 0)
             {

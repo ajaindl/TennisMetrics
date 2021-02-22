@@ -21,7 +21,7 @@ namespace TennisMetrics.Droid.Fragments
     {
         Button gs;
         Button vy;
-        ScoreHelper sh;
+        ScoreKeeper sh;
         Match matchStats;
 
         public string ShString { get; set; }
@@ -34,7 +34,7 @@ namespace TennisMetrics.Droid.Fragments
 
 
 
-            sh = JsonConvert.DeserializeObject<ScoreHelper>(ShString);
+            sh = JsonConvert.DeserializeObject<ScoreKeeper>(ShString);
             matchStats = JsonConvert.DeserializeObject<Match>(MsString);
 
             gs = Activity.FindViewById<Button>(Resource.Id.groundstroke);
@@ -42,13 +42,13 @@ namespace TennisMetrics.Droid.Fragments
 
             gs.Click += (object sender, EventArgs args) =>
             {
-                sh.PlayerAction(sh, true);
+                sh.PlayerAction(true);
                 ShString = JsonConvert.SerializeObject(sh);
                 HideFragments();
             };
             vy.Click += (object sender, EventArgs args) =>
             {
-                sh.PlayerAction(sh, true);
+                sh.PlayerAction(true);
                 ShString = JsonConvert.SerializeObject(sh);
                 HideFragments();
             };

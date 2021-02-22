@@ -18,7 +18,7 @@
         public bool IsSuper { get; set; }
         public bool Finished { get; set; }
 
-        public ScoreHelper IncrementPoint(TiebreakHelper stats, ScoreHelper playerStats, bool playerWon, bool isSuper)
+        public ScoreKeeper IncrementPoint(TiebreakHelper stats, ScoreKeeper playerStats, bool playerWon, bool isSuper)
         {
             if (isSuper)
             {

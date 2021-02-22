@@ -22,7 +22,7 @@ namespace TennisMetrics.Droid.Fragments
         private string err = "Error";
         Button fh;
         Button bh;
-        ScoreHelper sh;
+        ScoreKeeper sh;
         Match matchStats;
         Fragment currentFragment;
         Fragment strokeFragment;
@@ -34,7 +34,7 @@ namespace TennisMetrics.Droid.Fragments
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            sh = JsonConvert.DeserializeObject<ScoreHelper>(ShString);
+            sh = JsonConvert.DeserializeObject<ScoreKeeper>(ShString);
             matchStats = JsonConvert.DeserializeObject<Match>(MsString);
             strokeFragment = new StrokeFragment();
 
@@ -88,8 +88,8 @@ namespace TennisMetrics.Droid.Fragments
             else
             {
                 var rFrag = (ErrorTypeFragment)FragmentManager.FindFragmentById(fragment.Id);
-                rFrag.MsString = JsonConvert.SerializeObject(matchStats);
-                rFrag.ShString = JsonConvert.SerializeObject(sh);
+                rFrag.MatchStatsString = JsonConvert.SerializeObject(matchStats);
+                rFrag.ScoreHelperString = JsonConvert.SerializeObject(sh);
                 if (currentFragment == null)
                 {
 

@@ -18,13 +18,9 @@ namespace TennisMetrics.Droid.Fragments
 {
     public class ErrorTypeFragment : Fragment
     {
-        Button f;
-        Button uf;
-        ScoreHelper sh;
-        Match matchStats;
 
-        public string ShString { get; set; }
-        public string MsString { get; set; }
+        public string ScoreHelperString { get; set; }
+        public string MatchStatsString { get; set; }
         public Fragment CurrentFragment { get; set; }
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -33,23 +29,25 @@ namespace TennisMetrics.Droid.Fragments
 
 
 
-            sh = JsonConvert.DeserializeObject<ScoreHelper>(ShString);
-            matchStats = JsonConvert.DeserializeObject<Match>(MsString);
+            ScoreKeeper sh = JsonConvert.DeserializeObject<ScoreKeeper>(ScoreHelperString);
+            Match matchStats = JsonConvert.DeserializeObject<Match>(MatchStatsString);
 
-            f = Activity.FindViewById<Button>(Resource.Id.forced);
-            uf = Activity.FindViewById<Button>(Resource.Id.unforced);
+            Button forced = Activity.FindViewById<Button>(Resource.Id.forced);
+            Button unForced = Activity.FindViewById<Button>(Resource.Id.unforced);
 
-            f.Click += (object sender, EventArgs args) =>
+            forced.Click += (object sender, EventArgs args) =>
             {
-                sh.PlayerAction(sh, false);
+                sh.PlayerAction(false);
                 matchStats.Player.Stats.FHFError += 1;
-                ShString = JsonConvert.SerializeObject(sh);
+                ScoreHelperString = JsonConvert.SerializeObject(sh);
                 HideFragments();
             };
-            uf.Click += (object sender, EventArgs args) =>
+
+            unForced.Click += (object sender, EventArgs args) =>
             {
-                sh.PlayerAction(sh, false);
-                ShString = JsonConvert.SerializeObject(sh);
+                sh.PlayerAction(false);
+                matchStats.Player.Stats.FhUFErrors += 1;
+                ScoreHelperString = JsonConvert.SerializeObject(sh);
                 HideFragments();
             };
 

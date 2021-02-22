@@ -20,42 +20,33 @@ namespace TennisMetrics.Droid.Activities
 
             SetContentView(Resource.Layout.Error);
 
-            var sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
+            var scoreKeeper = JsonConvert.DeserializeObject<ScoreKeeper>(Intent.GetStringExtra("ScoreHelper"));
             var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
-            var rh = new ReturnHelper();
 
-            var fhuf = FindViewById<Button>(Resource.Id.fhuf);
+            var fhuf = FindViewById<Button>(Resource.Id.fhUF);
             var bhuf = FindViewById<Button>(Resource.Id.bhuf);
-            var fhf = FindViewById<Button>(Resource.Id.fhfe);
+            var fhf = FindViewById<Button>(Resource.Id.fhFE);
             var bhf = FindViewById<Button>(Resource.Id.bhfe);
 
             fhuf.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.FhUFErrors += 1;
-                sh.PlayerAction(sh, false);
-                var intent = rh.ReturnToBase(sh, match, this);
-                StartActivity(intent);
+                StartActivity(ActivityChange.Finalize(scoreKeeper, match, this));
             };
             bhuf.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.BhUFErrors += 1;
-                sh.PlayerAction(sh, false);
-                var intent = rh.ReturnToBase(sh, match, this);
-                StartActivity(intent);
+                StartActivity(ActivityChange.Finalize(scoreKeeper, match, this));
             };
             fhf.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.FHFError += 1;
-                sh.PlayerAction(sh, false);
-                var intent = rh.ReturnToBase(sh, match, this);
-                StartActivity(intent);
+                StartActivity(ActivityChange.Finalize(scoreKeeper, match, this));
             };
             bhf.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.BHFError += 1;
-                sh.PlayerAction(sh, false);
-                var intent = rh.ReturnToBase(sh, match, this);
-                StartActivity(intent);
+                StartActivity(ActivityChange.Finalize(scoreKeeper, match, this));
             };
         }
 

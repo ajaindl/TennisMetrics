@@ -7,6 +7,7 @@ using Android.Widget;
 using TennisMetrics.Droid.Models;
 using TennisMetrics.Droid.Activities.Helpers;
 using Newtonsoft.Json;
+using TennisMetrics.Droid.Activities.Enums;
 
 namespace TennisMetrics.Droid.Activities
 {
@@ -20,50 +21,51 @@ namespace TennisMetrics.Droid.Activities
 
             SetContentView(Resource.Layout.Point);
 
-            var sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
-            var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
-            var rh = new ReturnHelper();
+            var scoreKeeper = JsonConvert.DeserializeObject<ScoreKeeper>(Intent.GetStringExtra(ExtraType.ScoreKeeper.ToString()));
+            var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra(ExtraType.Match.ToString()));
 
             var ace = FindViewById<Button>(Resource.Id.ace);
             var winner = FindViewById<Button>(Resource.Id.winner);
             var error = FindViewById<Button>(Resource.Id.error);
             var unreturned = FindViewById<Button>(Resource.Id.forcedOppError);
 
+            if (!scoreKeeper.IsServing)
+            {
+                ace.Enabled = false;
+            }
 
 
             ace.Click += (object sender, EventArgs args) =>
              {
                  match.Player.Stats.Aces += 1;
-                 sh.PlayerAction(sh, true);
-                 var intent = rh.ReturnToBase(sh, match, this);
-                 StartActivity(intent);
+                 StartActivity(ActivityChange.Finalize(scoreKeeper, match, this));
 
              };
             winner.Click += (object sender, EventArgs args) =>
             {
                 var intent = new Intent(this, typeof(WinnerActivity));
-                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
-                intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
-                StartActivity(intent);
+                FinalizeActivitySwap(intent);
 
             };
             error.Click += (object sender, EventArgs args) =>
             {
                 var intent = new Intent(this, typeof(ErrorActivity));
-                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
-                intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
-                StartActivity(intent);
+                FinalizeActivitySwap(intent);
             };
             unreturned.Click += (object sender, EventArgs args) =>
             {
                 var intent = new Intent(this, typeof(ForcedErrorActivity));
-                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
-                intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
-                StartActivity(intent);
+                FinalizeActivitySwap(intent);
             };
 
-            if (!sh.IsServing)
-                ace.Enabled = false;
+ 
+
+            void FinalizeActivitySwap(Intent intent)
+            {
+                intent.PutExtra(ExtraType.Match.ToString(), JsonConvert.SerializeObject(match));
+                intent.PutExtra(ExtraType.ScoreKeeper.ToString(), JsonConvert.SerializeObject(scoreKeeper));
+                StartActivity(intent);
+            }
 
 
         }

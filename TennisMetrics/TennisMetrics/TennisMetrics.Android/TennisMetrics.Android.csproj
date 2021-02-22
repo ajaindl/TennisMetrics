@@ -8,14 +8,13 @@
     <OutputType>Library</OutputType>
     <RootNamespace>TennisMetrics.Droid</RootNamespace>
     <AssemblyName>TennisMetrics.Android</AssemblyName>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,10 +49,13 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\ActivityChange.cs" />
+    <Compile Include="Activities\Enums\ExtraType.cs" />
     <Compile Include="Activities\ErrorActivity.cs" />
     <Compile Include="Activities\ForcedErrorActivity.cs" />
     <Compile Include="Activities\Helpers\ReturnHelper.cs" />
-    <Compile Include="Activities\Helpers\ScoreHelper.cs" />
+    <Compile Include="Activities\Helpers\ScoreKeeper.cs" />
+    <Compile Include="Activities\Helpers\StoreMatchStatsHelper.cs" />
     <Compile Include="Activities\Helpers\TiebreakHelper.cs" />
     <Compile Include="Activities\Helpers\ViewHelper.cs" />
     <Compile Include="Activities\PointActivity.cs" />

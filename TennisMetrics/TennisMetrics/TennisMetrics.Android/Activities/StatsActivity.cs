@@ -50,7 +50,6 @@ namespace TennisMetrics.Droid.Activities
             var aces = FindViewById<TextView>(Resource.Id.aces);
             var df = FindViewById<TextView>(Resource.Id.dfs);
 
-            score.Text = 
             fhW.Text = stats.FhWinners.ToString();
             fhFE.Text = stats.FHFWinner.ToString();
             fhUF.Text = stats.FhUFErrors.ToString();

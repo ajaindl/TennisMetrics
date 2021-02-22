@@ -1,26 +1,27 @@
 ﻿using Android.Content;
 using TennisMetrics.Droid.Models;
 using Newtonsoft.Json;
+using TennisMetrics.Droid.Activities.Enums;
 
 namespace TennisMetrics.Droid.Activities.Helpers
 {
-    public class ReturnHelper
+    public static class ReturnHelper
     {
-        public Intent ReturnToBase(ScoreHelper sh, Match match, Context context)
+        public static Intent ReturnToBase(ScoreKeeper scoreKeeper, Match match, Context context)
         {
-            if (sh.IsServing)
+            if (scoreKeeper.IsServing)
             {
                 var intent = new Intent(context, typeof(ServeActivity));
-                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
-                intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
+                intent.PutExtra(ExtraType.Match.ToString(), JsonConvert.SerializeObject(match));
+                intent.PutExtra(ExtraType.ScoreKeeper.ToString(), JsonConvert.SerializeObject(scoreKeeper));
                 intent.PutExtra("Activity", "Data");
                 return intent;
             }
             else
             {
                 var intent = new Intent(context, typeof(ReturnActivity));
-                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
-                intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
+                intent.PutExtra(ExtraType.Match.ToString(), JsonConvert.SerializeObject(match));
+                intent.PutExtra(ExtraType.ScoreKeeper.ToString(), JsonConvert.SerializeObject(scoreKeeper));
                 intent.PutExtra("Activity", "Data");
                 return intent;
             }

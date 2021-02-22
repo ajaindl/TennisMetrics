@@ -7,6 +7,7 @@ using Android.Widget;
 using TennisMetrics.Droid.Activities.Helpers;
 using TennisMetrics.Droid.Models;
 using Newtonsoft.Json;
+using TennisMetrics.Droid.Activities.Enums;
 
 namespace TennisMetrics.Droid.Activities
 {
@@ -20,10 +21,8 @@ namespace TennisMetrics.Droid.Activities
 
             SetContentView(Resource.Layout.Winner);
 
-            var sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
-            var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
-            var rh = new ReturnHelper();
-
+            var sh = JsonConvert.DeserializeObject<ScoreKeeper>(Intent.GetStringExtra(ExtraType.ScoreKeeper.ToString()));
+            var match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra(ExtraType.Match.ToString()));
 
             var fhgs = FindViewById<Button>(Resource.Id.fhw);
             var bhgs = FindViewById<Button>(Resource.Id.bhw);
@@ -33,29 +32,29 @@ namespace TennisMetrics.Droid.Activities
             fhgs.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.FhWinners += 1;
-                sh.PlayerAction(sh, true);
-                var intent = rh.ReturnToBase(sh, match, this);
+                sh.PlayerAction(true);
+                var intent = ReturnHelper.ReturnToBase(sh, match, this);
                 StartActivity(intent);
             };
             bhgs.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.BhWinners += 1;
-                sh.PlayerAction(sh, true);
-                var intent = rh.ReturnToBase(sh, match, this);
+                sh.PlayerAction(true);
+                var intent = ReturnHelper.ReturnToBase(sh, match, this);
                 StartActivity(intent);
             };
             fhv.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.FhVWinners += 1;
-                sh.PlayerAction(sh, true);
-                var intent = rh.ReturnToBase(sh, match, this);
+                sh.PlayerAction(true);
+                var intent = ReturnHelper.ReturnToBase(sh, match, this);
                 StartActivity(intent);
             };
             bhv.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.BhVWinners += 1;
-                sh.PlayerAction(sh, true);
-                var intent = rh.ReturnToBase(sh, match, this);
+                sh.PlayerAction(true);
+                var intent = ReturnHelper.ReturnToBase(sh, match, this);
                 StartActivity(intent);
             };
 

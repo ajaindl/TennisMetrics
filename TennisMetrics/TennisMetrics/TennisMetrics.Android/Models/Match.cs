@@ -6,21 +6,21 @@ namespace TennisMetrics.Droid.Models
     {
         public Match(Settings settings, int games=6, int sets=3)
         {
-            MySettings = settings;
+            Settings = settings;
             TotalGames = games;
             TotalSets = sets;
             CurrentSet = 0;
             CurrentGame = 0;
             OpponentsGamesWon = 0;
             OpponentsSetsWon = 0;
-            IdList = new Dictionary<int, string>();
+            IdList = new List<string>();
        
 
         }
         public int StorageId { get; set; }
-        public Dictionary<int, string> IdList { get; set; }
+        public List<string> IdList { get; set; }
         public Player Player { get; set; }
-        public Settings MySettings { get; set; }
+        public Settings Settings { get; set; }
         public int TotalGames { get; set; }
         public int TotalSets { get; set; }
         public int CurrentSet { get; set; }

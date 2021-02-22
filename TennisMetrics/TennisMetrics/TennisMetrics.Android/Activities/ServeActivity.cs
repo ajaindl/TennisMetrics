@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using TennisMetrics.Droid.Models;
 using TennisMetrics.Droid.Activities.Helpers;
 using System.Collections.Generic;
+using TennisMetrics.Droid.Activities.Enums;
 
 namespace TennisMetrics.Droid.Activities
 {
@@ -16,7 +17,7 @@ namespace TennisMetrics.Droid.Activities
     {
         private Settings settings;
         private Match match;
-        private ScoreHelper sh;
+        private ScoreKeeper sh;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -29,14 +30,14 @@ namespace TennisMetrics.Droid.Activities
             
             if (Intent.GetStringExtra("Activity") == "Data")
             {
-                sh = JsonConvert.DeserializeObject<ScoreHelper>(Intent.GetStringExtra("ScoreHelper"));
-                match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra("Match"));
+                sh = JsonConvert.DeserializeObject<ScoreKeeper>(Intent.GetStringExtra(ExtraType.ScoreKeeper.ToString()));
+                match = JsonConvert.DeserializeObject<Match>(Intent.GetStringExtra(ExtraType.Match.ToString()));
 
             }
             else
             {
                 settings = JsonConvert.DeserializeObject<Settings>(Intent.GetStringExtra("Settings"));
-                sh = new ScoreHelper(settings);
+                sh = new ScoreKeeper(settings);
                 match = new Match(settings);
                 match.Player = new Player(Intent.GetStringExtra("P"));
                 match.Player.Stats = new Point();
@@ -49,7 +50,6 @@ namespace TennisMetrics.Droid.Activities
                 intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
                 StartActivity(intent);
             }
-            var rh = new ReturnHelper();
 
             var mainMenuButton = FindViewById<Button>(Resource.Id.mainMenu);
             var isReturnButton = FindViewById<Button>(Resource.Id.isReturn);
@@ -75,8 +75,8 @@ namespace TennisMetrics.Droid.Activities
             }
             playerRow.AddView(vh.GetGameScoreView(this, sh.PlayerGames));
             oppRow.AddView(vh.GetGameScoreView(this, sh.OppGames));
-            playerScore.Text = sh.GetScore(sh.PlayerPoints);
-            oppScore.Text = sh.GetScore(sh.OppPoints);
+            playerScore.Text = sh.GetPlayerScore();
+            oppScore.Text = sh.GetOppScore();
 
             if (sh.InTiebreak)
             {
@@ -88,26 +88,8 @@ namespace TennisMetrics.Droid.Activities
             if (sh.Finished)
             {
                 var intent = new Intent(this, typeof(StatsActivity));
-                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
-                var localStore = Application.Context.GetSharedPreferences("Matches", FileCreationMode.Private);
-                var storeEditor = localStore.Edit();
-
-                if (localStore.GetString("idlist", null) == null)
-                {
-                    match.StorageId = match.IdList.Count;
-                    match.IdList.Add(match.StorageId, DateTime.Now.ToString());
-                    storeEditor.PutString("idlist", JsonConvert.SerializeObject(match.IdList));
-                }
-                else
-                {
-                    match.IdList = JsonConvert.DeserializeAnonymousType("idlist", match.IdList);
-                    match.StorageId = match.IdList.Count;
-                    match.IdList.Add(match.StorageId, DateTime.Now.ToString());
-                    storeEditor.PutString("idlist", JsonConvert.SerializeObject(match.IdList));
-                }
-       
-                storeEditor.PutString(match.StorageId.ToString(), JsonConvert.SerializeObject(match));
-                storeEditor.Commit();
+                intent.PutExtra(ExtraType.Match.ToString(), JsonConvert.SerializeObject(match));
+                StoreMatchStatsHelper.StoreMatchStats(match);
                 StartActivity(intent);
             }
 
@@ -117,8 +99,8 @@ namespace TennisMetrics.Droid.Activities
                 match.Player.Stats.FSMade += 1;
                 match.Player.Stats.FSServed += 1;
                 var intent = new Intent(this, typeof(PointActivity));
-                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
-                intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
+                intent.PutExtra(ExtraType.Match.ToString(), JsonConvert.SerializeObject(match));
+                intent.PutExtra(ExtraType.ScoreKeeper.ToString(), JsonConvert.SerializeObject(sh));
                 StartActivity(intent);
 
             };
@@ -128,16 +110,15 @@ namespace TennisMetrics.Droid.Activities
                 match.Player.Stats.SSMade += 1;
                 match.Player.Stats.FSServed += 1;
                 var intent = new Intent(this, typeof(PointActivity));
-                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
-                intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
+                intent = ActivityChange.Finalize(sh, match, this);
                 StartActivity(intent);
 
             };
             dfButton.Click += (object sender, EventArgs args) =>
             {
                 match.Player.Stats.DoubleFaults += 1;
-                sh.PlayerAction(sh, false);
-                var intent = rh.ReturnToBase(sh, match, this);
+                sh.PlayerAction(false);
+                var intent = ReturnHelper.ReturnToBase(sh, match, this);
                 StartActivity(intent);   
 
             };
@@ -145,8 +126,7 @@ namespace TennisMetrics.Droid.Activities
             {
                 sh.IsServing = false;
                 var intent = new Intent(this, typeof(ReturnActivity));
-                intent.PutExtra("Match", JsonConvert.SerializeObject(match));
-                intent.PutExtra("ScoreHelper", JsonConvert.SerializeObject(sh));
+                intent = ActivityChange.Finalize(sh, match, this);
                 StartActivity(intent);
             };
             mainMenuButton.Click += (object sender, EventArgs args) =>
@@ -157,7 +137,7 @@ namespace TennisMetrics.Droid.Activities
                 alertBuilder.SetPositiveButton("Yes", (senderAlert, argsAlert) =>
                 {
                     var intent = new Intent(this, typeof(StatsActivity));
-                    intent.PutExtra("Match", JsonConvert.SerializeObject(match));
+                    intent.PutExtra(ExtraType.Match.ToString(), JsonConvert.SerializeObject(match));
                     StartActivity(intent);
                 });
                 alertBuilder.SetNegativeButton("No", (senderAlert, argsAlert) =>
